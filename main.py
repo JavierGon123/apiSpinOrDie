@@ -16,7 +16,7 @@ collection = db["nombre-vuelta"]
 # Endpoint para obtener la lista de jugadores ordenada de forma descendente por "vueltas"
 @app.route('/obtener', methods=['GET'])
 def get_jugadores():
-    jugadores = list(collection.find().sort("vueltas", -1))
+    jugadores = list(collection.find().sort("vueltas", 1))
     for jugador in jugadores:
         jugador["_id"] = str(jugador["_id"])  # Convertir ObjectId a string
     return jsonify(jugadores)
